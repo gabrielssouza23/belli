@@ -10,9 +10,10 @@
 <body>
 <nav id="navbar">
     <a href="#">Home</a>
-    <a href="#">Sobre</a>
     <a href="#">Contato</a>
     <a href="#">Localização</a>
+    <a href="#">Carrinho</a>
+    <a href="#">Cadastro</a>
 </nav>
 
 <div id="content">
