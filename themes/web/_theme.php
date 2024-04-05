@@ -9,15 +9,17 @@
 </head>
 <body>
 <nav id="navbar">
-    <a href="#">Home</a>
-    <a href="#">Sobre</a>
-    <a href="#">Contato</a>
-    <a href="#">Localização</a>
+    <a href="<?= url();?>">Home</a>
+    <a href="<?= url("sobre"); ?>">Sobre</a>
+    <a href="<?= url("contato"); ?>">Contato</a>
+    <a href="<?= url("localizacao"); ?>">Localização</a>
 </nav>
 
 <div id="content">
     <!-- Your content goes here -->
-    <h1>Olá, eu sou o link CONTATO!</h1>
+    <?php
+        echo $this->section("content");
+    ?>
 </div>
 
 <footer>

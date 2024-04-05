@@ -15,6 +15,8 @@ $route->group(null);
 $route->get("/", "Web:home");
 $route->get("/contato", "Web:contact");
 $route->get("/localizacao", "Web:location");
+$route->get("/carrinho","Web:cart");
+$route->get("/entrar","Web:login");
 $route->get("/ops/{errcode}", "Web:error");
 
 $route->group(null);

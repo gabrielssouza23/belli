@@ -29,6 +29,16 @@ public function __construct()
         echo "<h1>Eu sou a Localização</h1>";
     }
 
+    public function cart () : void
+    {
+        echo $this->view->render("cart",[]);
+    }
+
+    public function login() : void
+    {
+        echo $this->view->render("login",[]);
+    }
+
     public function error(array $data)
     {
         var_dump($data);
