@@ -19,6 +19,11 @@ public function __construct()
         echo $this->view->render("home",[]);
     }
 
+    public function about ()
+    {
+        echo $this->view->render("about",[]);
+    }
+
     public function contact ()
     {
         echo $this->view->render("contact",[]);
@@ -26,7 +31,7 @@ public function __construct()
 
     public function location ()
     {
-        echo "<h1>Eu sou a Localização</h1>";
+        echo $this->view->render("location",[]);
     }
 
     public function cart () : void
