@@ -6,6 +6,9 @@
     <title>..:: Meu Sistema ::..</title>
     <link rel="stylesheet" href="themes/web/assets/css/styles.css">
     <script src="themes/web/assets/js/scripts.js"></script>
+    <?php if ($this->section("specific-script")): ?>
+        <?= $this->section("specific-script"); ?>
+    <?php endif; ?>
 </head>
 <body>
 <nav id="navbar">
