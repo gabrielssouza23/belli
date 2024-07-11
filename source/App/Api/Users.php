@@ -16,8 +16,34 @@ class Users extends Api
 
     public function insertUser (array $data)
     {
-        echo "Olá, Insert USer";
-        var_dump($data);
+
+        $user = new User(
+            NULL,
+            $data["name"],
+            $data["email"],
+            $data["password"]
+        );
+
+        $insert = $user->insert();
+
+        if(!$insert){
+            $this->back([
+                "type" => "error",
+                "message" => $user->getMessage()
+            ]);
+            return;
+        }
+
+        $this->back([
+            "type" => "success",
+            "message" => $user->getMessage(),
+            "user" => [
+                "id" => $insert,
+                "name" => $user->getName(),
+                "email" => $user->getEmail()
+            ]
+        ]);
+
     }
 
 }
