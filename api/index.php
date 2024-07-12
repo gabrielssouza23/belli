@@ -13,6 +13,8 @@ $route->namespace("Source\App\Api");
 $route->get("/faqs","Faqs:listFaqs");
 $route->get("/users", "Users:listUsers");
 $route->post("/users","Users:insertUser");
+$route->post("/users/login","Users:loginUser");
+$route->put("/users/update","Users:updateUser");
 
 $route->dispatch();
 
