@@ -77,8 +77,8 @@ class Users extends Api
 
     public function updateUser(array $data)
     {
+        var_dump($data["name"],$data["email"]);
         var_dump($this->headers["token"]);
-        //var_dump($data["name"],$data["email"]);
     }
 
 }
