@@ -15,6 +15,7 @@ $route->get("/users", "Users:listUsers");
 $route->post("/users","Users:insertUser");
 $route->post("/users/login","Users:loginUser");
 $route->post("/users/update","Users:updateUser");
+$route->post("/users/set-password","Users:setPassword");
 
 $route->dispatch();
 

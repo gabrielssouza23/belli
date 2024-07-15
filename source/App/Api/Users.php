@@ -7,6 +7,11 @@ use Source\Models\User;
 
 class Users extends Api
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function listUsers ()
     {
         //echo "Olá, Lista de Usuários";
@@ -77,8 +82,55 @@ class Users extends Api
 
     public function updateUser(array $data)
     {
-        var_dump($data["name"],$data["email"]);
-        var_dump($this->headers["token"]);
+        if(!$this->userAuth){
+            $this->back([
+                "type" => "error",
+                "message" => "Você não pode estar aqui.."
+            ]);
+            return;
+        }
+
+        $user = new User(
+            $this->userAuth->id,
+            $data["name"],
+            $data["email"]
+        );
+
+        if(!$user->update()){
+            $this->back([
+                "type" => "error",
+                "message" => $user->getMessage()
+            ]);
+            return;
+        }
+
+        $this->back([
+            "type" => "success",
+            "message" => $user->getMessage(),
+            "user" => [
+                "id" => $user->getId(),
+                "name" => $user->getName(),
+                "email" => $user->getEmail()
+            ]
+        ]);
+    }
+
+    public function setPassword(array $data)
+    {
+        $user = new User($this->userAuth->id);
+
+        if(!$user->updatePassword($data["password"],$data["newPassword"],$data["confirmNewPassword"])){
+            $this->back([
+                "type" => "error",
+                "message" => $user->getMessage()
+            ]);
+            return;
+        }
+
+        $this->back([
+            "type" => "success",
+            "message" => $user->getMessage()
+        ]);
     }
 
 }
