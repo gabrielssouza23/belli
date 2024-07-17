@@ -10,7 +10,6 @@ $this->end();
 ?>
 <h1>Olá, eu sou o Login!</h1>
 <!--Formulário de login-->
-
 <form id="formLogin">
     <label>
         <span>Email:</span>
