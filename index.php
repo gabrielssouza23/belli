@@ -25,6 +25,7 @@ $route->group("/app");
 
 $route->get("/", "App:home");
 $route->get("/perfil", "App:profile");
+$route->get("/mensagens", "App:messages");
 //$route->get("/carrinho", "App:cart");
 
 $route->group(null);
@@ -32,7 +33,8 @@ $route->group(null);
 $route->group("/adm");
 
 $route->get("/", "Admin:home");
-$route->get("/cadastro-produtos", "Admin:products");
+$route->get("/perfil","Admin:profile");
+$route->get("/produtos", "Admin:products");
 
 $route->group(null);
 

@@ -24,4 +24,10 @@ class App
         echo $this->view->render("profile",[]);
     }
 
+    public function messages ()
+    {
+        //echo "Olá, eu sou as mensagens do usuário";
+        echo $this->view->render("messages",[]);
+    }
+
 }
