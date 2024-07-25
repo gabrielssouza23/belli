@@ -21,6 +21,19 @@ $route->get("/entrar","Web:login");
 $route->get("/faqs","Web:faqs");
 $route->get("/ops/{errcode}", "Web:error");
 
+$route->group("/app");
+
+$route->get("/", "App:home");
+$route->get("/perfil", "App:profile");
+//$route->get("/carrinho", "App:cart");
+
+$route->group(null);
+
+$route->group("/adm");
+
+$route->get("/", "Admin:home");
+$route->get("/cadastro-produtos", "Admin:products");
+
 $route->group(null);
 
 $route->dispatch();
