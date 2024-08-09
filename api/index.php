@@ -10,13 +10,6 @@ $route = new Router(url(),":");
 
 $route->namespace("Source\App\Api");
 
-
-$route->group("/faqs");
-
-$route->get("/","Faqs:listFaqs");
-
-$route->group("null");
-
 $route->group("/users");
 
 $route->get("/", "Users:listUsers");
@@ -24,6 +17,24 @@ $route->post("/","Users:insertUser");
 $route->post("/login","Users:loginUser");
 $route->post("/update","Users:updateUser");
 $route->post("/set-password","Users:setPassword");
+
+$route->group("null");
+
+$route->group("/services");
+
+//$route->get("/service/{serviceId}/category/{categoryId}","Services:getById");
+$route->get("/service/{serviceId}","Services:getById");
+
+$route->put("/update/service/{serviceId}/name/{name}","Services:update");
+$route->delete("/delete/service/{serviceId}","Services:delete");
+
+$route->get("/category/{categoryId}","Services:getByCategory");
+
+$route->group("null");
+
+$route->group("/faqs");
+
+$route->get("/","Faqs:listFaqs");
 
 $route->group("null");
 
