@@ -28,4 +28,23 @@ class Api
         echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }
 
+    /**
+     * @return void
+     * @description Verifica se o usuário está autenticado
+     */
+    protected function auth (): void
+    {
+        if (!$this->userAuth){
+            $response = [
+                "error" => [
+                    "code" => "401",
+                    "type" => "unauthorized",
+                    "message" => "Usuário não autorizado e/ou token expirado"
+                ]
+            ];
+            $this->back($response, 401);
+            exit();
+        }
+    }
+
 }
