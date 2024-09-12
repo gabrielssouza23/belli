@@ -7,12 +7,13 @@ use Source\Core\TokenJWT;
 class Api
 {
     protected $headers;
+    // atributo para armazenar os dados do usuário autenticado
     protected $userAuth = false;
 
     public function __construct()
     {
-        header('Content-Type: application/json; charset=UTF-8');
         $this->headers = getallheaders();
+        header("Content-Type: application/json");
 
         if(!empty($this->headers["token"]) || isset($this->headers["token"])){
             $jwt = new TokenJWT();

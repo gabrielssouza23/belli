@@ -9,6 +9,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header('Access-Control-Allow-Credentials: true'); // Permitir credenciais
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
@@ -20,33 +21,46 @@ $route = new Router(url(),":");
 
 $route->namespace("Source\App\Api");
 
+/* USERS */
+
 $route->group("/users");
 
 $route->get("/", "Users:listUsers");
-$route->post("/","Users:insertUser");
+$route->post("/","Users:createUser");
 $route->post("/login","Users:loginUser");
 $route->post("/update","Users:updateUser");
 $route->post("/set-password","Users:setPassword");
 
 $route->group("null");
 
-$route->group("/services");
-
-//$route->get("/service/{serviceId}/category/{categoryId}","Services:getById");
-$route->get("/service/{serviceId}","Services:getById");
-
-$route->put("/update/service/{serviceId}/name/{name}","Services:update");
-$route->delete("/delete/service/{serviceId}","Services:delete");
-
-$route->get("/category/{categoryId}","Services:getByCategory");
-
-$route->group("null");
+/* FAQS */
 
 $route->group("/faqs");
 
 $route->get("/","Faqs:listFaqs");
 
 $route->group("null");
+
+/* SERVICES */
+
+$route->group("/services");
+
+$route->get("/service/{serviceId}","Services:getById");
+$route->post("/service","Services:insert");
+$route->delete("/service/{serviceId}","Services:delete");
+$route->put("/service/{serviceId}/name/{name}/description/{description}","Services:update");
+$route->get("/list-by-category/category/{categoryId}","Services:listByCategory");
+//$route->get("/list-by-category/category/{categoryId}/bland/{blandId}","Services:listByCategory");
+
+$route->group("null");
+
+$route->group("/services-categories");
+$route->post("/","ServicesCategories:insert");
+$route->get("/","ServicesCategories:getCategory");
+$route->put("/","ServicesCategories:update");
+$route->delete("/","ServicesCategories:remove");
+$route->group("null");
+
 
 $route->dispatch();
 

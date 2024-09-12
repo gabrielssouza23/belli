@@ -14,25 +14,30 @@ class Users extends Api
 
     public function listUsers ()
     {
-        //echo "Olá, Lista de Usuários";
-        $user = new User();
-        //var_dump($user->selectAll());
-        $this->back($user->selectAll());
+        $users = new User();
+        $this->back($users->selectAll());
     }
 
-    public function insertUser (array $data)
+    public function createUser (array $data)
     {
+        if(in_array("", $data)) {
+            $this->back([
+                "type" => "error",
+                "message" => "Preencha todos os campos"
+            ]);
+            return;
+        }
 
         $user = new User(
-            NULL,
+            null,
             $data["name"],
             $data["email"],
             $data["password"]
         );
 
-        $insert = $user->insert();
+        $insertUser = $user->insert();
 
-        if(!$insert){
+        if(!$insertUser){
             $this->back([
                 "type" => "error",
                 "message" => $user->getMessage()
@@ -42,12 +47,7 @@ class Users extends Api
 
         $this->back([
             "type" => "success",
-            "message" => $user->getMessage(),
-            "user" => [
-                "id" => $insert,
-                "name" => $user->getName(),
-                "email" => $user->getEmail()
-            ]
+            "message" => "Usuário cadastrodo com sucesso!"
         ]);
 
     }
@@ -140,5 +140,4 @@ class Users extends Api
             "message" => $user->getMessage()
         ]);
     }
-
 }

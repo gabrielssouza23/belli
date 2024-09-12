@@ -2,4 +2,4 @@
     echo $this->layout("_theme");
 ?>
 
-<h1>Eu sou o Sobre...</h1>
+<h1>Olá, eu sou o Sobre!</h1>

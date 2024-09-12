@@ -13,37 +13,44 @@ class Service extends Model
     private $description;
     private $message;
 
-    public function __construct()
+    public function __construct(?int $id, int $categoryId, string $name, string $description)
     {
+        $this->id = $id;
+        $this->categoryId = $categoryId;
+        $this->name = $name;
+        $this->description = $description;
         $this->entity = "services";
     }
 
-    public function selectById (int $serviceId): ?array
+    public function listById (int $id)
     {
-        $query = "SELECT services.id, services.name, services.description,  services_categories.name as 'category_name' 
+        $query = "SELECT services.id, services.name, services.description, 
+                  services_categories.name as 'category_name'
                   FROM services
-                  INNER JOIN services_categories ON services_categories.id = services.service_category_id
+                  INNER JOIN services_categories ON services.service_category_id = services_categories.id
                   WHERE services.id = :service_id";
+
         $conn = Connect::getInstance();
         $stmt = $conn->prepare($query);
-        $stmt->bindParam("service_id",$serviceId);
-
+        $stmt->bindParam("service_id",$id);
         $stmt->execute();
+        return $stmt->fetchAll();
 
-        return (array)$stmt->fetch();
     }
 
-    public function selectByCategory (int $idCategory): ?array
+    public function listByCategory (int $categoryId): array
     {
-        $query = "SELECT services.id, services.name, services.description,  services_categories.name as 'category_name'
+        $query = "SELECT services.id, services.name, services.description, 
+                  services_categories.name as 'category_name'
                   FROM services
-                  INNER JOIN services_categories ON services_categories.id = services.service_category_id
+                  INNER JOIN services_categories ON services.service_category_id = services_categories.id
                   WHERE services_categories.id = :category_id";
         $conn = Connect::getInstance();
         $stmt = $conn->prepare($query);
-        $stmt->bindParam("category_id", $idCategory);
+        $stmt->bindParam("category_id", $categoryId);
         $stmt->execute();
         return $stmt->fetchAll();
+
     }
 
 }

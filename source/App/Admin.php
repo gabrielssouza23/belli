@@ -23,9 +23,4 @@ class Admin
         echo $this->view->render("products",[]);
     }
 
-    public function profile ()
-    {
-       echo $this->view->render("profile",[]);
-    }
-
 }

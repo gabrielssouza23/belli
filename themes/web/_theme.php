@@ -4,31 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>..:: Meu Sistema ::..</title>
-    <link rel="stylesheet" href="themes/web/assets/css/styles.css">
-    <script src="themes/web/assets/js/scripts.js"></script>
-    <?php if ($this->section("specific-     ")): ?>
-        <?= $this->section("specific-script"); ?>
-    <?php endif; ?>
+    <link rel="stylesheet" href="<?= url("assets/css/web/styles.css"); ?>">
+    <script type="module" src="<?= url("assets/js/web/scripts.js"); ?>" async></script>
+<?php if ($this->section("specific-script")): ?>
+    <?= $this->section("specific-script"); ?>
+<?php endif; ?>
 </head>
 <body>
 <nav id="navbar">
-    <a href="<?= url(); ?>">Home</a>
+    <a href="<?= url();?>">Home</a>
     <a href="<?= url("sobre"); ?>">Sobre</a>
     <a href="<?= url("contato"); ?>">Contato</a>
     <a href="<?= url("localizacao"); ?>">Localização</a>
-    <a href="<?= url("carrinho"); ?>">Carrinho</a>
-    <a href="<?= url("entrar"); ?>">Cadastro</a>
+    <a href="<?= url("faqs"); ?>">FAQs</a>
+    <a href="<?= url("login"); ?>">Entrar</a>
 </nav>
-
-<div id="content">
+<div class="content">
     <!-- Your content goes here -->
     <?php
         echo $this->section("content");
     ?>
 </div>
-
 <footer>
-    <p>© 2023 Meu Sistema. All rights reserved.</p>
+    <p>© 2024 Meu Sistema. Todos os direitos reservados.</p>
 </footer>
 </body>
 </html>

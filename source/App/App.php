@@ -24,10 +24,9 @@ class App
         echo $this->view->render("profile",[]);
     }
 
-    public function messages ()
+    public function cart (array $data)
     {
-        //echo "Olá, eu sou as mensagens do usuário";
-        echo $this->view->render("messages",[]);
+        echo $this->view->render("cart", []);
     }
 
 }

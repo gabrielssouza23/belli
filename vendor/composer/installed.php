@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'fabio3268/mvc-project-tarde',
+        'name' => 'fabio3268/mvc-project-manha',
         'pretty_version' => '1.0.0+no-version-set',
         'version' => '1.0.0.0',
         'reference' => NULL,
@@ -19,7 +19,7 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'fabio3268/mvc-project-tarde' => array(
+        'fabio3268/mvc-project-manha' => array(
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
             'reference' => NULL,
