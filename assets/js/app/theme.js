@@ -1,9 +1,11 @@
-import {getBackendUrl} from "./../_shared/functions.js";
+import {
+    getBackendUrl
+} from "./../_shared/functions.js";
 
-const userAuth = localStorage.getItem("userAuth");
+import {
+    userAuth
+} from "./../_shared/globals.js";
 
 if(!userAuth){
-    window.location.href = getBackendUrl() + "/login";
+    window.location.href = getBackendUrl("login");
 }
-
-//console.log(userAuth);

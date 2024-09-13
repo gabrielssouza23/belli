@@ -1,11 +1,14 @@
+// Função para retornar a URL do backend
 export function getBackendUrl(path = "") {
     return `${location.protocol}//${location.hostname}:8080/mvc-project-tarde/${path}`;
 }
 
+// Função para retornar a URL da API
 export function getBackendUrlApi(path = "") {
     return `${location.protocol}//${location.hostname}:8080/mvc-project-tarde/api/${path}`;
 }
 
+// Função para preencher os campos do formulário com os dados do objeto
 export function showDataForm (object)  {
     for(const field in object){
         if (document.querySelector("#"+field)){
@@ -35,4 +38,9 @@ export function showToast (message) {
             toastContainer.removeChild(toast);
         }, 500);
     }, 3000);
+}
+
+// Função que recebe o nome completo de uma pessoa e retorna só o primeiro nome
+export function getFirstName(fullName) {
+    return fullName.split(' ')[0];
 }
