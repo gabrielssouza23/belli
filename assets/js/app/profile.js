@@ -1,6 +1,6 @@
 import {
     showDataForm,
-    getBackendUrlApi
+    getBackendUrlApi, getBackendUrl, showToast
 } from "./../_shared/functions.js";
 
 import {
@@ -14,6 +14,12 @@ fetch(getBackendUrlApi("users/me"), {
     }
 }).then((response) => {
     response.json().then((data) => {
+        if(data.error) {
+            showToast(data.error.message);
+            setTimeout(() => {
+                window.location.href = getBackendUrl();
+            },3000);
+        }
         showDataForm(data.user);
     });
 });

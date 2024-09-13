@@ -23,6 +23,8 @@
     <a href="<?= url("/app/carrinho"); ?>">Carrinho</a>
     <a href="#">Sair</a>
 </nav>
+<!-- Contêiner para as mensagens toast -->
+<div id="toast-container"></div>
 <div class="content">
     <?php
     echo $this->section("content");

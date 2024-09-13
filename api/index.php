@@ -31,6 +31,7 @@ $route->get("/me","Users:getUser");
 $route->post("/login","Users:loginUser");
 $route->post("/update","Users:updateUser");
 $route->post("/set-password","Users:setPassword");
+$route->get("/token-validate", "Users:tokenValidate");
 
 $route->group("null");
 

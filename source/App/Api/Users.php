@@ -32,6 +32,21 @@ class Users extends Api
 
     }
 
+    public function tokenValidate ()
+    {
+        $this->auth();
+
+        $this->back([
+            "type" => "success",
+            "message" => "Token válido",
+            "user" => [
+                "id" => $this->userAuth->id,
+                "name" => $this->userAuth->name,
+                "email" => $this->userAuth->email
+            ]
+        ]);
+    }
+
     public function listUsers ()
     {
         $users = new User();
