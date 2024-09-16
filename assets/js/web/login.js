@@ -8,7 +8,6 @@ import {
 const formRegister = document.querySelector("#formRegister");
 formRegister.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("Form submit");
     fetch(getBackendUrlApi("users"),{
         method: "POST",
         body: new FormData(formRegister)
