@@ -1,14 +1,27 @@
 export const URLpath = "mvc-project-tarde";
+// export const URLpath = "sua-pasta-de-trabalho";
 
 // Função para retornar a URL do backend
 export function getBackendUrl(path = "") {
     return `${location.protocol}//${location.hostname}:8080/${URLpath}/${path}`;
 }
 
+/*
+export function getBackendUrl(path = "") {
+    return `${location.protocol}//${location.hostname}/${URLpath}/${path}`;
+}
+ */
+
 // Função para retornar a URL da API
 export function getBackendUrlApi(path = "") {
     return `${location.protocol}//${location.hostname}:8080/${URLpath}/api/${path}`;
 }
+
+/*
+export function getBackendUrlApi(path = "") {
+    return `${location.protocol}//${location.hostname}/${URLpath}/api/${path}`;
+}
+ */
 
 // Função para preencher os campos do formulário com os dados do objeto
 export function showDataForm (object)  {
