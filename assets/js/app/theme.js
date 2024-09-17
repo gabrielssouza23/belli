@@ -9,3 +9,22 @@ import {
 if(!userAuth){
     window.location.href = getBackendUrl("login");
 }
+
+// Código aqui está repetitivo, pois o thema faz a validação do token por tempo
+// e depois os demais scripts também farão a validação do token por tempo
+
+fetch(getBackendUrlApi("users/token-validate"), {
+    method: "GET",
+    headers: {
+        token: userAuth.token
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        if(data.error) {
+            showToast(data.error.message);
+            setTimeout(() => {
+                window.location.href = getBackendUrl("login");
+            },3000);
+        }
+    });
+});
