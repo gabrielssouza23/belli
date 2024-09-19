@@ -1,5 +1,6 @@
-<?php
+<?php $this->layout('_theme'); ?>
 
-echo $this->layout("_theme");
-
-echo "<h1>Eu sou a Home do Admin...</h1>'";
+<section>
+    <h2>Bem-vindo à área administrativa</h2>
+    <p>Conteúdo da página inicial do dashboard.</p>
+</section>

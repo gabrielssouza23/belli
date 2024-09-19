@@ -13,7 +13,12 @@ class Service extends Model
     private $description;
     private $message;
 
-    public function __construct(?int $id, int $categoryId, string $name, string $description)
+    public function __construct(
+        ?int $id = NULL,
+        int $categoryId = NULL,
+        string $name = NULL,
+        string $description = NULL
+    )
     {
         $this->id = $id;
         $this->categoryId = $categoryId;

@@ -19,8 +19,14 @@ class Admin
         echo $this->view->render("home",[]);
     }
 
-    public function products () {
+    public function products (): void
+    {
         echo $this->view->render("products",[]);
+    }
+
+    public function services (): void
+    {
+        echo $this->view->render("services",[]);
     }
 
 }
