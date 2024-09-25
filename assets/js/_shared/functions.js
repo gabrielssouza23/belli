@@ -32,11 +32,10 @@ export function showDataForm (object)  {
     }
 }
 
-// função para preencher um SELECT HTML
+// função para preencher um SELECT HTML com uma lista de objetos
 
 export function showDataSelect  (listObj, selectHtml) {
     listObj.forEach((obj) => {
-        console.log(obj);
         const option = document.createElement("option");
         option.setAttribute("value",obj.id);
         option.textContent = obj.name;
