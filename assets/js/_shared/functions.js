@@ -32,6 +32,18 @@ export function showDataForm (object)  {
     }
 }
 
+// função para preencher um SELECT HTML
+
+export function showDataSelect  (listObj, selectHtml) {
+    listObj.forEach((obj) => {
+        console.log(obj);
+        const option = document.createElement("option");
+        option.setAttribute("value",obj.id);
+        option.textContent = obj.name;
+        selectHtml.appendChild(option);
+    });
+}
+
 // Função para exibir mensagens toast
 export function showToast (message) {
     const toastContainer = document.getElementById('toast-container');

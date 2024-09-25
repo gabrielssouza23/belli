@@ -1,26 +1,37 @@
 import {
     showDataForm,
-    getBackendUrlApi, getBackendUrl, showToast
+    getBackendUrlApi, getBackendUrl, showToast, showDataSelect
 } from "./../_shared/functions.js";
 
 const listServices = document.querySelector("#list-services");
 const serviceForm = document.querySelector("#edit-form");
 
 const modalService = document.querySelector("#edit-modal");
+const selectCategories = document.querySelector("#service_category_id");
+
 //modalService.style.display = "flex";
 let categories = fetch(`http://localhost:8080/mvc-project-tarde/api/services-categories`).then((response) => {
-    response.json().then((categories) => {
-        categories.forEach((category) => {
-
-        });
+    response.json()
+        .then((categories) => {
+            showDataSelect(categories, selectCategories);
+            console.log(categories);
+            /*categories.forEach((category) => {
+                console.log(category);
+                const option = document.createElement("option");
+                option.setAttribute("value",category.id);
+                option.textContent = category.name;
+                selectCategories.appendChild(option);
+            });*/
     });
 });
+
+//
 
 fetch(`http://localhost:8080/mvc-project-tarde/api/services/list-by-category/category/1`,{
     method: "GET"
 })
     .then((response) => {
-    console.log(response.json()
+    response.json()
         .then((services) => {
             //console.log(services);
             services.forEach((service) => {
@@ -35,7 +46,7 @@ fetch(`http://localhost:8080/mvc-project-tarde/api/services/list-by-category/cat
                 `;
                 listServices.appendChild(newServiceLi);
             });
-        }));
+        });
 });
 
 listServices.addEventListener("click", (e) => {
@@ -54,8 +65,6 @@ listServices.addEventListener("click", (e) => {
                     console.log(service);
                     modalService.style.display = "flex";
                     showDataForm(service);
-                    console.log(categories);
-                    //categories
                 });
         });
     }

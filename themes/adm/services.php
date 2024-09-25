@@ -31,10 +31,10 @@
         <input type="text" id="name" name="name">
         <label for="description">Descrição</label>
         <textarea id="description" name="description"></textarea>
-        <!--<label for="service-category">Categoria</label>
-        <select name="service-category" id="">
-            <option value=""></option>
-        </select>-->
+        <label for="service-category">Categoria</label>
+        <select name="service_category_id" id="service_category_id">
+
+        </select>
         <button type="submit">Salvar</button>
         <button type="button" id="close-modal">Cancelar</button>
     </form>
