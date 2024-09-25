@@ -23,7 +23,7 @@ class Api
         }
     }
 
-    protected function back (array $response, int $code = 200) : void
+    protected function back (mixed $response, int $code = 200) : void
     {
         http_response_code($code);
         echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

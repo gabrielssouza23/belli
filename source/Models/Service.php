@@ -29,7 +29,7 @@ class Service extends Model
 
     public function listById (int $id)
     {
-        $query = "SELECT services.id, services.name, services.description, 
+        $query = "SELECT services.id, services.name, services.description, services.service_category_id, 
                   services_categories.name as 'category_name'
                   FROM services
                   INNER JOIN services_categories ON services.service_category_id = services_categories.id
@@ -39,7 +39,7 @@ class Service extends Model
         $stmt = $conn->prepare($query);
         $stmt->bindParam("service_id",$id);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetch();
 
     }
 
