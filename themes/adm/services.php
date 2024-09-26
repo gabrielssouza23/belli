@@ -4,38 +4,27 @@
 <link rel="stylesheet" href="<?= url("assets/css/admin/services.css"); ?>">
 <?php $this->end(); ?>
 
-<section>
+<section class="services">
     <h2>Lista de Serviços</h2>
-    <ul id="list-services">
-<!--            <li service-id=1>
-                <span>ID: 1</span>
-                <span>Nome: Engenharia</span>
-                <button class="edit-btn" data-id="1"><i class="fas fa-edit"></i> Editar</button>
-                <button class="delete-btn" data-id="1"><i class="fas fa-trash"></i> Excluir</button>
-            </li>
-            <li service-id=2>
-                <span>ID: 1</span>
-                <span>Nome: Engenharia</span>
-                <button class="edit-btn" data-id="1"><i class="fas fa-edit"></i> Editar</button>
-                <button class="delete-btn" data-id="1"><i class="fas fa-trash"></i> Excluir</button>
-            </li>-->
+    <ul class="services-item" id="list-services">
     </ul>
 </section>
 
-<section id="edit-modal" class="modal">
-    <form id="edit-form">
+<div id="edit-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
         <h2>Editar Serviço</h2>
-        <!--<label for="id">ID</label>
-        <input type="text" id="id" name="id" readonly>-->
-        <label for="name">Nome</label>
-        <input type="text" id="name" name="name">
-        <label for="description">Descrição</label>
-        <textarea id="description" name="description"></textarea>
-        <label for="service-category">Categoria</label>
-        <select name="service_category_id" id="service_category_id">
-
-        </select>
-        <button type="submit">Salvar</button>
-        <button type="button" id="close-modal">Cancelar</button>
-    </form>
-</section>
+        <form id="edit-form">
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id" readonly>
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name">
+            <label for="description">Descrição</label>
+            <textarea id="description" name="description"></textarea>
+            <label for="service-category">Categoria</label>
+            <select name="service_category_id" id="service_category_id">
+            </select>
+            <input type="submit" value="Salvar">
+        </form>
+    </div>
+</div>

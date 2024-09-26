@@ -27,7 +27,7 @@ let categories = fetch(`http://localhost:8080/mvc-project-tarde/api/services-cat
 
 //
 
-fetch(`http://localhost:8080/mvc-project-tarde/api/services/list-by-category/category/1`,{
+fetch(`http://localhost:8080/mvc-project-tarde/api/services/list-by-category/category/2`,{
     method: "GET"
 })
     .then((response) => {
@@ -38,6 +38,7 @@ fetch(`http://localhost:8080/mvc-project-tarde/api/services/list-by-category/cat
                 //console.log(service.id, service.name);
                 const newServiceLi = document.createElement("li");
                 newServiceLi.setAttribute("service-id",service.id);
+                newServiceLi.classList.add("services-")
                 newServiceLi.innerHTML = `
                 <span>ID: ${service.id}</span>
                 <span>Nome: ${service.name}</span>
@@ -63,7 +64,8 @@ listServices.addEventListener("click", (e) => {
             response.json()
                 .then((service) => {
                     console.log(service);
-                    modalService.style.display = "flex";
+                    //modalService.style.display = "flex";
+                    modalService.classList = "modal active";
                     showDataForm(service);
                 });
         });
@@ -73,6 +75,9 @@ listServices.addEventListener("click", (e) => {
     }
 });
 
+document.querySelector(".close-button").addEventListener("click", () => {
+    modalService.classList = "modal";
+});
 
 /*
 fetch(getBackendUrlApi("services/list-by-category/category/1"),
@@ -118,7 +123,8 @@ listServices.addEventListener("click", (e) => {
     }
 });
 
+
+*/
 serviceForm.addEventListener("submit", (e) => {
     e.preventDefault();
 });
-*/
