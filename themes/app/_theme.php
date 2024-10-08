@@ -16,11 +16,10 @@
         <div id="user-photo"></div>
         <span>Olá, Fulano!</span>
     </div>
+    
+    <a href="<?= url("/app/home"); ?>">Home</a>
     <a href="<?= url("/app/perfil"); ?>">Perfil</a>
-    <a href="#">Meus Pedidos</a>
-    <a href="#">Configurações</a>
-    <a href="#">Mensagens</a>
-    <a href="<?= url("/app/carrinho"); ?>">Carrinho</a>
+    <a href="<?= url("/app/medicamentos"); ?>">Meus Medicamentos</a>
     <a href="#">Sair</a>
 </nav>
 <!-- Contêiner para as mensagens toast -->

@@ -23,8 +23,9 @@ $route->get("/login","Web:login");
 $route->group("/app");
 
 $route->get("/", "App:home");
+$route->get("/home", "App:home");
 $route->get("/perfil", "App:profile");
-$route->get("/carrinho", "App:cart");
+$route->get("/medicamentos", "App:medicamentos");
 
 $route->group(null);
 

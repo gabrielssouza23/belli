@@ -88,33 +88,44 @@ class Users extends Api
 
     }
 
-    public function loginUser (array $data) {
+    public function loginUser(array $data) {
         $user = new User();
-
-        if(!$user->login($data["email"],$data["password"])){
+    
+        // Verifica se o login foi bem-sucedido
+        if (!$user->login($data["email"], $data["password"])) {
             $this->back([
                 "type" => "error",
                 "message" => $user->getMessage()
             ]);
             return;
         }
-        $token = new TokenJWT();
+    
+        // Inicia a sessão para armazenar os dados do usuário
+        session_start(); // Certifique-se de que a sessão está sendo iniciada
+    
+        $token = new TokenJWT(); // Criação do token JWT
+        $jwtToken = $token->create([ // Gerar o token
+            "id" => $user->getId(),
+            "name" => $user->getName(),
+            "email" => $user->getEmail()
+        ]);
+    
+        // Armazenar os dados do usuário na sessão
+        $_SESSION['user'] = [
+            "id" => $user->getId(),
+            "name" => $user->getName(),
+            "email" => $user->getEmail(),
+            "token" => $jwtToken // Armazenando o token na sessão
+        ];
+    
+        // Retornando a resposta com os dados
         $this->back([
             "type" => "success",
             "message" => $user->getMessage(),
-            "user" => [
-                "id" => $user->getId(),
-                "name" => $user->getName(),
-                "email" => $user->getEmail(),
-                "token" => $token->create([
-                    "id" => $user->getId(),
-                    "name" => $user->getName(),
-                    "email" => $user->getEmail()
-                ])
-            ]
+            "user" => $_SESSION['user'] // Você pode retornar os dados da sessão aqui
         ]);
-
     }
+    
 
     public function updateUser(array $data)
     {

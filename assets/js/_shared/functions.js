@@ -3,7 +3,7 @@ export const URLpath = "mvc-project-tarde";
 
 // Função para retornar a URL do backend
 export function getBackendUrl(path = "") {
-    return `${location.protocol}//${location.hostname}:8080/${URLpath}/${path}`;
+    return `${location.protocol}//${location.hostname}/${URLpath}/${path}`;
 }
 
 /*
@@ -14,7 +14,7 @@ export function getBackendUrl(path = "") {
 
 // Função para retornar a URL da API
 export function getBackendUrlApi(path = "") {
-    return `${location.protocol}//${location.hostname}:8080/${URLpath}/api/${path}`;
+    return `${location.protocol}//${location.hostname}/${URLpath}/api/${path}`;
 }
 
 /*

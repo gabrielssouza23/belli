@@ -119,3 +119,135 @@ footer.private-footer {
     background-color: #f8f9fa;
     border: none;
 }
+
+/* Reset e estilo global */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+/* Estilo da página privada */
+.private-area {
+    width: 100%;
+    height: 100vh;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Navbar da área privada */
+#private-navbar {
+    background-color: #333;
+    color: #FFEA11;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#private-navbar a {
+    color: #FFEA11;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+#private-navbar a:hover {
+    color: #fff;
+}
+
+#user-greeting {
+    display: flex;
+    align-items: center;
+}
+
+#user-photo {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-image: url('https://i.ibb.co/X5fqYr4/user-icon.png'); /* Adicione sua foto de perfil aqui */
+    background-size: cover;
+    background-position: center;
+}
+
+.content {
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #e9ecef;
+    flex: 1;
+}
+
+/* Estilos do footer */
+.private-footer {
+    background-color: #333;
+    color: #FFEA11;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Cards dos medicamentos */
+.medicine-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.medicine-card:hover {
+    transform: scale(1.05);
+}
+
+.medicine-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.medicine-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.medicine-card .tag {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Tarjas de medicamento */
+.tarja-vermelha {
+    background-color: #ff4d4f;
+}
+
+.tarja-preta {
+    background-color: #000;
+}
+
+.tarja-amarela {
+    background-color: #FFEA11;
+    color: #000;
+}
+
+.tarja-verde {
+    background-color: #28a745;
+}
+
